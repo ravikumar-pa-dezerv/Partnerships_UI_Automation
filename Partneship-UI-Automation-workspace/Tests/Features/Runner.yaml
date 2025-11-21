@@ -1,25 +1,25 @@
 appId: com.htmedia.mint
 ---
 - runFlow:
-    file: 1_Login.yaml
+    file: Tests/Features/1_Login.yaml
     optional: true
 
 - runFlow:
-    file: 2_FAQ.yaml
+    file: Tests/Features/2_FAQ.yaml
     optional: true
 
 - runFlow:
-    file: 3_MF.yaml
+    file: Tests/Features/3_MF.yaml
     optional: true
 
 - runFlow:
-    file: 4_Stocks.yaml
+    file: Tests/Features/4_Stocks.yaml
     optional: true
 
 - runFlow:
-    file: 5_Banks.yaml
+    file: Tests/Features/5_Banks.yaml
     optional: true
 
 - runFlow:
-    file: 6_DailyMovement.yaml
+    file: Tests/Features/6_DailyMovement.yaml
     optional: true

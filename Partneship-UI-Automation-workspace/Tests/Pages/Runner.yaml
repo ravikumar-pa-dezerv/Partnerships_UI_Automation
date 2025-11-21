@@ -1,89 +1,89 @@
 appId: com.htmedia.mint
 ---
 - runFlow:
-    file: 0_Login.yaml
+    file: Tests/Pages/0_Login.yaml
     optional: true
 
 - runFlow:
-    file: 1_HomePage.yaml
+    file: Tests/Pages/1_HomePage.yaml
     optional: true
 
 - runFlow:
-    file: 2_FAQ_General.yaml
+    file: Tests/Pages/2_FAQ_General.yaml
     optional: true
 
 - runFlow:
-    file: 3_FAQ_Privacy.yaml
+    file: Tests/Pages/3_FAQ_Privacy.yaml
     optional: true
 
 - runFlow:
-    file: 4_FAQ_Bank.yaml
+    file: Tests/Pages/4_FAQ_Bank.yaml
     optional: true
 
 - runFlow:
-    file: 5_FAQ_MF.yaml
+    file: Tests/Pages/5_FAQ_MF.yaml
     optional: true
 
 - runFlow:
-    file: 6_FAQ_Stocks.yaml
+    file: Tests/Pages/6_FAQ_Stocks.yaml
     optional: true
 
 - runFlow:
-    file: 7_FAQ_DataSharing_Consent.yaml
+    file: Tests/Pages/7_FAQ_DataSharing_Consent.yaml
     optional: true
 
 - runFlow:
-    file: 8_MF_L1_Header.yaml
+    file: Tests/Pages/8_MF_L1_Header.yaml
     optional: true
 
 - runFlow:
-    file: 9_MF_L1_Summary.yaml
+    file: Tests/Pages/9_MF_L1_Summary.yaml
     optional: true
 
 - runFlow:
-    file: 10_MF_L1_Holdings.yaml
+    file: Tests/Pages/10_MF_L1_Holdings.yaml
     optional: true
 
 - runFlow:
-    file: 11_MF_L2_Holdings.yaml
+    file: Tests/Pages/11_MF_L2_Holdings.yaml
     optional: true
 
 - runFlow:
-    file: 12_Stocks_Header.yaml
+    file: Tests/Pages/12_Stocks_Header.yaml
     optional: true
 
 - runFlow:
-    file: 13_Stocks_Summary.yaml
+    file: Tests/Pages/13_Stocks_Summary.yaml
     optional: true
 
 - runFlow:
-    file: 14_Stocks_Holdings.yaml
+    file: Tests/Pages/14_Stocks_Holdings.yaml
     optional: true
 
 - runFlow:
-    file: 15_Banks_Analysis.yaml
+    file: Tests/Pages/15_Banks_Analysis.yaml
     optional: true
 
 - runFlow:
-    file: 16_Banks_Transactions.yaml
+    file: Tests/Pages/16_Banks_Transactions.yaml
     optional: true
 
 - runFlow:
-    file: 17_Home_DailyMovement_MF.yaml
+    file: Tests/Pages/17_Home_DailyMovement_MF.yaml
     optional: true
 
 - runFlow:
-    file: 18_Home_DailyMovement_Stocks.yaml
+    file: Tests/Pages/18_Home_DailyMovement_Stocks.yaml
     optional: true
 
 - runFlow:
-    file: 19_L1_DailyMovement_MF.yaml
+    file: Tests/Pages/19_L1_DailyMovement_MF.yaml
     optional: true
 
 - runFlow:
-    file: 20_L1_DailyMovement_Stocks.yaml
+    file: Tests/Pages/20_L1_DailyMovement_Stocks.yaml
     optional: true
 
 - runFlow:
-    file: 21_Expert_Call.yaml
+    file: Tests/Pages/21_Expert_Call.yaml
     optional: true
