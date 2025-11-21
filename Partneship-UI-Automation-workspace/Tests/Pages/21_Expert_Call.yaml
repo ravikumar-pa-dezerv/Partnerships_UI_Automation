@@ -98,15 +98,36 @@ appId: com.htmedia.mint
 - assertVisible: "FAQs.*"
 
 #21 Expert call
-- scrollUntilVisible:
-    element:
-      text: "Set-up a free 1-1 call.*"
-    direction: DOWN
-- assertVisible: Next steps.*
-- assertVisible: .*Your wealth manager will present you a detailed analysis.*
-- assertVisible: .*45 min call.*
-- assertVisible: .*No consultation charges
-- assertVisible: Set-up a free 1-1 call.*
+- runFlow:
+    when:
+      visible: "Book your free 1-1 portfolio review call with an expert.*"
+    commands:
+      - scrollUntilVisible:
+          element:
+            text: "Set-up a free 1-1 call.*"
+          direction: DOWN
+      - assertVisible: Book your free 1-1 portfolio review call with an expert.*
+      - assertVisible: .*Here's what you will get on the call.*
+      - assertVisible: .*WE PICKED A SLOT FOR YOU WE PICKED A SLOT FOR YOU.*
+      - assertVisible: .*45 min call.*
+      - assertVisible:  .*Free consultation.*
+      - assertVisible:  .*Did you know? .* investors with .*Cr+ portfolio have taken our consultation.*
+      - assertVisible: "Confirm slot :.*"
+      - assertVisible: Choose Another Slot.*
 
-- tapOn: Set-up a free 1-1 call.*
-- assertVisible: Select preferred slot for 1-1 call with your client partner.*
+
+- runFlow:
+    when:
+      visible: "Next steps.*"
+    commands:
+      - scrollUntilVisible:
+          element:
+            text: "Set-up a free 1-1 call.*"
+          direction: DOWN
+      - assertVisible: Next steps.*
+      - assertVisible: .*Your wealth manager will present you a detailed analysis.*
+      - assertVisible: .*45 min call.*
+      - assertVisible: .*No consultation charges
+      - assertVisible: Set-up a free 1-1 call.*
+      - tapOn: Set-up a free 1-1 call.*
+      - assertVisible: Select preferred slot for 1-1 call with your client partner.*
