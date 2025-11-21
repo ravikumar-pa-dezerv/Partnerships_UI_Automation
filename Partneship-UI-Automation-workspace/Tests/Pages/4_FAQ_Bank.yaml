@@ -1,0 +1,146 @@
+appId: com.htmedia.mint
+---
+- launchApp:
+    clearState: true
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible:
+        id: mintlogo
+    commands:
+      - runFlow:
+          when:
+            visible:
+              id: mintlogo
+          commands:
+            - runFlow:
+                when:
+                  visible:
+                    id: mintlogo
+                commands:
+                  - runFlow:
+                      when:
+                        visible:
+                          id: mintlogo
+                      commands:
+                        - runFlow:
+                            when:
+                              visible:
+                                id: mintlogo
+                            commands:
+                              - runFlow:
+                                  when:
+                                    visible:
+                                      id: mintlogo
+                                  commands:
+                                    - tapOn:
+                                        id: mintlogo
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: "Consent"
+    commands:
+      - tapOn: "Consent"
+
+- runFlow:
+    when:
+      visible: "Consent"
+    commands:
+      - tapOn: "Consent"
+
+- waitForAnimationToEnd
+- tapOn: "Markets"
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: "Take a Quick Tour"
+    commands:
+      - tapOn: "Take a Quick Tour"
+      - runFlow:
+          when:
+            visible: "Skip"
+          commands:
+            - tapOn: "Skip"
+- tapOn: "Portfolio"
+- waitForAnimationToEnd
+- assertVisible:
+    text: "Link your portfolio to get started.*"
+    delay: 30000
+
+#Login
+# Enter phone number
+- doubleTapOn:
+    text: Enter Phone Number.*
+- tapOn:
+    text: Enter Phone Number.*
+    delay: 100
+- inputText: "9663117951"
+
+#"Get Started"
+- tapOn:
+    text: Get Started.*
+
+# DEZ OTP
+- doubleTapOn:
+    text: Enter 4 digit OTP.*
+- tapOn:
+    text: Enter 4 digit OTP.*
+    delay: 20000
+- inputText: "1"
+- waitForAnimationToEnd
+
+- assertVisible:
+    text: "Your Assets.*"
+    delay: 30000
+- assertVisible: "FAQs.*"
+
+- tapOn: "FAQs.*"
+- tapOn: "Bank.*"
+
+- tapOn: "Why is my bank balance or transactions not reflecting correctly?.*"
+- assertVisible: ".*Ensure your bank is supported and correctly linked. Data is refreshed daily, but recent transactions or weekend activity may take longer to reflect.*"
+
+- tapOn: "How frequently is my bank data refreshed, and how much history is available?.*"
+- assertVisible: ".*Bank data is refreshed once a day, typically within 24 hours. You can fetch up to 1 year of past transaction data after linking your account.*"
+
+- tapOn: "Can I add, remove, or manage multiple bank accounts?.*"
+- assertVisible: ".*Yes, you can link multiple savings accounts as long as the mobile number matches your bank records. However, account removal is not supported at the moment.*"
+
+- tapOn: "Why am I not seeing one of my linked bank accounts?.*"
+- assertVisible: ".*One of your banks may be down or failed to sync. Check again after some time.*"
+
+- tapOn: What if my account data isn\'t refreshing or syncing after OTP verification?.*
+- assertVisible: ".*It could be due to server downtime, incorrect login details, or linking errors. It may take up to 48 hours for data to sync. Retry after some time.*"
+
+- tapOn: "Can I link a bank account that is registered with a different mobile number?.*"
+- assertVisible: .*No. The mobile number must match your bank[’'']?s records for OTP-based verification.*
+
+- tapOn: I can\'t see my joint account while discovering bank accounts.*
+- assertVisible: ".*Currently, only individual savings accounts are supported. Joint and current account support is coming soon.*"
+
+- scrollUntilVisible:
+    element:
+      text: What filters are available in the transaction view?.*
+      delay: 100
+    direction: DOWN
+
+- tapOn: "There are duplicate transactions or incorrect cash flow entries—how can I fix this?.*"
+- assertVisible: ".*Mark duplicate or internal transfer transactions to remove them from your cash flow calculations.*"
+
+- tapOn: "Can I change the category of a transaction?.*"
+- assertVisible: .*Yes. Tap on the transaction and choose a more relevant category.*
+
+- tapOn: "What filters are available in the transaction view?.*"
+- assertVisible: ".*You can filter by bank account, merchant name, payment mode, date range, category, and transaction type.*"
+
+- scrollUntilVisible:
+    element:
+      text: What filters are available in the transaction view?.*
+      delay: 100
+    direction: DOWN
+
+- tapOn: "which banks are supported in the app?.*"
+- assertVisible: ".*Most major Indian banks are supported. Over 20 banks have already been onboarded, with more being added regularly.*"

@@ -1,0 +1,145 @@
+appId: com.htmedia.mint
+---
+- launchApp:
+    clearState: true
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible:
+        id: mintlogo
+    commands:
+      - runFlow:
+          when:
+            visible:
+              id: mintlogo
+          commands:
+            - runFlow:
+                when:
+                  visible:
+                    id: mintlogo
+                commands:
+                  - runFlow:
+                      when:
+                        visible:
+                          id: mintlogo
+                      commands:
+                        - runFlow:
+                            when:
+                              visible:
+                                id: mintlogo
+                            commands:
+                              - runFlow:
+                                  when:
+                                    visible:
+                                      id: mintlogo
+                                  commands:
+                                    - tapOn:
+                                        id: mintlogo
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: "Consent"
+    commands:
+      - tapOn: "Consent"
+
+- runFlow:
+    when:
+      visible: "Consent"
+    commands:
+      - tapOn: "Consent"
+
+- waitForAnimationToEnd
+- tapOn: "Markets"
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: "Take a Quick Tour"
+    commands:
+      - tapOn: "Take a Quick Tour"
+      - runFlow:
+          when:
+            visible: "Skip"
+          commands:
+            - tapOn: "Skip"
+- tapOn: "Portfolio"
+- waitForAnimationToEnd
+- assertVisible:
+    text: "Link your portfolio to get started.*"
+    delay: 30000
+
+#Login
+# Enter phone number
+- doubleTapOn:
+    text: Enter Phone Number.*
+- tapOn:
+    text: Enter Phone Number.*
+    delay: 100
+- inputText: "9663117951"
+
+#"Get Started"
+- tapOn:
+    text: Get Started.*
+
+# DEZ OTP
+- doubleTapOn:
+    text: Enter 4 digit OTP.*
+- tapOn:
+    text: Enter 4 digit OTP.*
+    delay: 20000
+- inputText: "1"
+- waitForAnimationToEnd
+
+- assertVisible:
+    text: "Your Assets.*"
+    delay: 30000
+- assertVisible: "FAQs.*"
+
+- tapOn: "FAQs.*"
+- tapOn: "Privacy.*"
+
+- tapOn: "What is an Account Aggregator (AA)?.*"
+- assertVisible: .*An Account Aggregator is a Reserve Bank of India \(RBI\)-regulated entity that enables you to securely and digitally share your financial information \(like bank account details\) with financial service providers, but only with your explicit consent.*
+
+- tapOn: "What is Account Aggregator, and why is it needed?.*"
+- assertVisible: .*Account Aggregators allow secure, consent-based sharing of your financial data. This system is regulated by RBI and SEBI to give you full control and transparency.*
+
+- tapOn: "How does Mint Portfolio powered by Dezerv utilize the AA framework?.*"
+- assertVisible: ".*Mint Portfolio leverages the AA framework to fetch your financial data securely and with your permission. This integration provides a consolidated view of your financial portfolio within the Mint app.*"
+
+- tapOn: "Would my data be automatically shared if I had already signed up on an Account Aggregator platform earlier?.*"
+- assertVisible: ".*No, your data will not be automatically shared. Even if you've registered on an AA platform before, fresh consent is required to initiate data sharing.*"
+
+- tapOn: "Is my data safe when using the AA system?.*"
+- assertVisible: ".*Absolutely. Your data is encrypted, shared only with your explicit consent, and cannot be accessed or stored by Account Aggregators.*"
+
+- tapOn: "Is my data secure?.*"
+- assertVisible: ".*Yes. Your data is protected with 256-bit encryption, two-factor authentication, read-only access, and no storage of sensitive credentials.*"
+
+- scrollUntilVisible:
+    element:
+      text: "How do I revoke my consent to share profile data with Mint?.*"
+      delay: 100
+    direction: DOWN
+
+- tapOn: "Is my financial data shared with anyone?.*"
+- assertVisible: ".*No. Your data is shared only when you provide consent. With your permission, data is shared with Dezerv for insights and with Mint to personalise your app experience.*"
+
+- tapOn: "How does Mint Portfolio powered by Dezerv access my financial data?.*"
+- assertVisible: .*We securely fetch your financial data in two ways—through RBI-regulated Account Aggregators for bank and stock data, and via OTP-based consent from MFCentral \(CAMS \+ KFintech\) for mutual funds. All access is encrypted, consent-based, and fully compliant with regulatory standards.*
+
+- tapOn: "How do I delete my account and data?.*"
+- assertVisible: ".*Click below to delete your account and all associated data.*"
+- assertVisible: ".*Delete Account.*"
+
+- scrollUntilVisible:
+    element:
+      text: "How do I revoke my consent to share profile data with Mint?.*"
+      delay: 100
+    direction: DOWN
+
+- tapOn: "How do I revoke my consent to share profile data with Mint?.*"
+- assertVisible: ".*To stop sharing your profile data with Mint, click the button below and follow the instructions.*"
+- assertVisible: ".*Stop Sharing.*"

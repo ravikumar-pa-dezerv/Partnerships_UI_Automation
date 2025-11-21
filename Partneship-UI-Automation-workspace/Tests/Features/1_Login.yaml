@@ -1,0 +1,155 @@
+appId: com.htmedia.mint
+---
+- launchApp:
+    clearState: true
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible:
+        id: mintlogo
+    commands:
+      - runFlow:
+          when:
+            visible:
+              id: mintlogo
+          commands:
+            - runFlow:
+                when:
+                  visible:
+                    id: mintlogo
+                commands:
+                  - runFlow:
+                      when:
+                        visible:
+                          id: mintlogo
+                      commands:
+                        - runFlow:
+                            when:
+                              visible:
+                                id: mintlogo
+                            commands:
+                              - runFlow:
+                                  when:
+                                    visible:
+                                      id: mintlogo
+                                  commands:
+                                    - tapOn:
+                                        id: mintlogo
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: "Consent"
+    commands:
+      - tapOn: "Consent"
+
+- runFlow:
+    when:
+      visible: "Consent"
+    commands:
+      - tapOn: "Consent"
+
+- waitForAnimationToEnd
+- tapOn: "Markets"
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: "Take a Quick Tour"
+    commands:
+      - tapOn: "Take a Quick Tour"
+      - runFlow:
+          when:
+            visible: "Skip"
+          commands:
+            - tapOn: "Skip"
+- tapOn: "Portfolio"
+- waitForAnimationToEnd
+
+- assertVisible:
+    text: "Link your portfolio to get started.*"
+    delay: 30000
+- assertVisible: "Your data is 100% protected.*"
+- assertVisible: See how it works.*
+- tapOn: See how it works.*
+- assertVisible: Track and monitor all your investments in one place.*
+- assertVisible: Your data is 100% safe You can unlink your accounts anytime.*
+- assertVisible: ₹3,900 Cr\+ of missed gains identified.*
+- assertVisible: ₹79,000 Cr\+ of assets reviewed.*
+- tapOn: Get Started.*
+- tapOn: See how it works.*
+- tapOn: Close button
+
+#Login
+# Enter phone number
+- doubleTapOn:
+    text: Enter Phone Number.*
+- tapOn:
+    text: Enter Phone Number.*
+    delay: 100
+- inputText: "9663117951"
+
+#"Get Started"
+- tapOn:
+    text: Get Started.*
+
+# DEZ OTP
+- doubleTapOn:
+    text: Enter 4 digit OTP.*
+- tapOn:
+    text: Enter 4 digit OTP.*
+    delay: 20000
+- inputText: "1"
+- waitForAnimationToEnd
+
+- assertVisible:
+    text: "Your Assets.*"
+    delay: 30000
+- assertVisible: "FAQs.*"
+
+#1 HOME PAGE
+- assertVisible: .*1D Mutual Fund:\s*[-+]?₹[0-9.,KkMm]+.*[-+]?[0-9.]+%
+- assertVisible: .*1D Stock:\s*[-+]?₹[0-9.,KkMm]+.*[-+]?[0-9.]+%
+- assertVisible: .*Mutual Funds.*[0-9,]+\sFunds.*[-]?₹.*
+- assertVisible: .*Stocks.*[0-9,]+\sStock.*[-]?₹.*
+- assertVisible: .*Banks.*[0-9,]+\sAccounts.*[-]?₹.*
+
+- scrollUntilVisible:
+    element:
+      text: "Set-up a free 1-1 call.*"
+    direction: DOWN
+- assertVisible: Next steps.*
+- assertVisible: .*Your wealth manager will present you a detailed analysis.*
+- assertVisible: .*45 min call.*
+- assertVisible: .*No consultation charges
+- assertVisible: Set-up a free 1-1 call.*
+
+- scrollUntilVisible:
+    element:
+      text: "Portfolio insights.*"
+    direction: DOWN
+- assertVisible: ".*Stay updated with market news on your holdings.*"
+- assertVisible: ".*Make sense of your wealth one insight at a time"
+- scrollUntilVisible:
+    element:
+      text: "News on your portfolio.*"
+    direction: DOWN
+- assertVisible: "News on your portfolio.*"
+- assertVisible: ".*Stay updated with market news on your holdings.*"
+- scrollUntilVisible:
+    element:
+      text: ".*ISO 27001 Certified"
+    direction: DOWN
+- assertVisible: ".*SEBI Regulated.*"
+- assertVisible: ".*Your data is 100% secure.*"
+- assertVisible: ".*ISO 27001 Certified"
+- assertVisible: "Powered by.*"
+
+#21 Expert call
+- scrollUntilVisible:
+    element:
+      text: "Set-up a free 1-1 call.*"
+    direction: UP
+- tapOn: Set-up a free 1-1 call.*
+- assertVisible: Select preferred slot for 1-1 call with your client partner.*

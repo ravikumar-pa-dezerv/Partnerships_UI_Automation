@@ -1,0 +1,155 @@
+appId: com.htmedia.mint
+---
+- launchApp:
+    clearState: true
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: 
+        id: mintlogo
+    commands:
+      - runFlow:
+          when:
+            visible: 
+              id: mintlogo
+          commands:
+            - runFlow:
+                when:
+                  visible: 
+                    id: mintlogo
+                commands:
+                  - runFlow:
+                      when:
+                        visible: 
+                          id: mintlogo
+                      commands:
+                        - runFlow:
+                            when:
+                              visible: 
+                                id: mintlogo
+                            commands:
+                              - runFlow:
+                                  when:
+                                    visible: 
+                                      id: mintlogo
+                                  commands:
+                                    - tapOn: 
+                                        id: mintlogo
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: "Consent"
+    commands:
+      - tapOn: "Consent"
+
+- runFlow:
+    when:
+      visible: "Consent"
+    commands:
+      - tapOn: "Consent"
+
+- waitForAnimationToEnd
+- tapOn: "Markets"
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: "Take a Quick Tour"
+    commands:
+      - tapOn: "Take a Quick Tour"
+      - runFlow:
+          when:
+            visible: "Skip"
+          commands:
+            - tapOn: "Skip"
+- tapOn: "Portfolio"
+- waitForAnimationToEnd
+- assertVisible:
+    text: "Link your portfolio to get started.*"
+    delay: 30000
+
+#Login
+# Enter phone number
+- doubleTapOn:
+    text: Enter Phone Number.*
+- tapOn:
+    text: Enter Phone Number.*
+    delay: 100
+- inputText: "9663117951"
+
+#"Get Started"
+- tapOn:
+    text: Get Started.*
+
+# DEZ OTP
+- doubleTapOn:
+    text: Enter 4 digit OTP.*
+- tapOn:
+    text: Enter 4 digit OTP.*
+    delay: 20000
+- inputText: "1"
+- waitForAnimationToEnd
+
+- assertVisible:
+    text: "Your Assets.*"
+    delay: 30000
+- assertVisible: "FAQs.*"
+
+- tapOn: "FAQs.*"
+- tapOn: "General.*"
+
+- tapOn: "What is Mint Portfolio powered by Dezerv?.*"
+- assertVisible: ".*Mint Portfolio, powered by Dezerv is a portfolio tracking and analysis tool integrated into the Mint app. It helps you track your mutual funds, stocks, and bank accounts—while identifying concerns like high risk, poor diversification, or underperformance.*"
+
+- tapOn: "Is this service free?.*"
+- assertVisible: ".*Yes, Mint Portfolio powered by Dezerv is completely free to use within the Mint app. All features are available at no cost.*"
+
+- tapOn: "Do I need a separate login for Dezerv?.*"
+- assertVisible: ".*No. Everything works directly within the Mint app—no additional login or download is required.*"
+
+- scrollUntilVisible:
+    element:
+      text: "Do I need to install a separate app to use the Account Aggregator feature?.*"
+    direction: DOWN
+
+- tapOn: "Do I need to install a separate app to use the Account Aggregator feature?.*"
+- assertVisible: ".*No. All functionalities are integrated within the Mint app. You can access and manage your financial data directly through the app without the need for additional installations.*"
+
+- tapOn: "Can I also trade or invest using Mint Portfolio powered by Dezerv?.*"
+- assertVisible: ".*No, trading or investing is not supported within the app. You can only track and analyse your existing investments.*"
+
+- tapOn: "What can I track with Mint Portfolio, powered by Dezerv?.*"
+- assertVisible: .*You can track your mutual funds, bank accounts, and stocks \(via supported brokers\).*
+
+- tapOn: "How does it work?.*"
+- assertVisible: ".*Enter your PAN and registered mobile number. With your consent, the tool securely fetches and consolidates your data using Account Aggregators and MFCentral.*"
+
+- tapOn: "How often is Mint Portfolio updated?.*"
+- assertVisible: .*Your portfolio is updated daily, typically between 6 AM and 10 AM\. Stock data is refreshed on a T\+1 basis \(i.e., the day after trade settlement\).*
+
+- tapOn: "Can I see insights or get recommendations?.*"
+- assertVisible: ".*Yes. The app highlights red flags such as underperformance, concentration risk, or poor diversification.*"
+
+- scrollUntilVisible:
+    element:
+      text: "What are the benefits of using an Account Aggregator through the Mint Portfolio?.*"
+    direction: DOWN
+
+- tapOn: "What are the benefits of using an Account Aggregator through the Mint Portfolio?.*"
+- assertVisible: ".*You get a unified view of your bank and demat accounts, real-time updates, broker aggregation, spending insights, and seamless portfolio.*"
+
+- scrollUntilVisible:
+    element:
+      text: "How real-time are the updates provided by Account Aggregators?.*"
+    direction: DOWN
+
+- tapOn: "How real-time are the updates provided by Account Aggregators?.*"
+- assertVisible: .*Most Account Aggregators offer near real\-time or daily updates, ensuring your portfolio reflects up\-to\-date data.*
+
+- tapOn:
+    #text: backward arrow
+    point: 7%,8%
+- assertVisible: "Your Assets.*"
+- assertVisible: FAQs.*

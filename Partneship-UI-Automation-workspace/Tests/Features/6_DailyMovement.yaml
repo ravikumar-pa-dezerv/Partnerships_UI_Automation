@@ -1,0 +1,215 @@
+appId: com.htmedia.mint
+---
+- launchApp:
+    clearState: true
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible:
+        id: mintlogo
+    commands:
+      - runFlow:
+          when:
+            visible:
+              id: mintlogo
+          commands:
+            - runFlow:
+                when:
+                  visible:
+                    id: mintlogo
+                commands:
+                  - runFlow:
+                      when:
+                        visible:
+                          id: mintlogo
+                      commands:
+                        - runFlow:
+                            when:
+                              visible:
+                                id: mintlogo
+                            commands:
+                              - runFlow:
+                                  when:
+                                    visible:
+                                      id: mintlogo
+                                  commands:
+                                    - tapOn:
+                                        id: mintlogo
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: "Consent"
+    commands:
+      - tapOn: "Consent"
+
+- runFlow:
+    when:
+      visible: "Consent"
+    commands:
+      - tapOn: "Consent"
+
+- waitForAnimationToEnd
+- tapOn: "Markets"
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: "Take a Quick Tour"
+    commands:
+      - tapOn: "Take a Quick Tour"
+      - runFlow:
+          when:
+            visible: "Skip"
+          commands:
+            - tapOn: "Skip"
+- tapOn: "Portfolio"
+- waitForAnimationToEnd
+- assertVisible:
+    text: "Link your portfolio to get started.*"
+    delay: 30000
+
+#Login
+# Enter phone number
+- doubleTapOn:
+    text: Enter Phone Number.*
+- tapOn:
+    text: Enter Phone Number.*
+    delay: 100
+- inputText: "9663117951"
+
+#"Get Started"
+- tapOn:
+    text: Get Started.*
+
+# DEZ OTP
+- doubleTapOn:
+    text: Enter 4 digit OTP.*
+- tapOn:
+    text: Enter 4 digit OTP.*
+    delay: 20000
+- inputText: "1"
+- waitForAnimationToEnd
+
+- assertVisible:
+    text: "Your Assets.*"
+    delay: 30000
+- assertVisible: "FAQs.*"
+
+#17 MF Daily movement - via Home screen
+- tapOn: .*1D Mutual Fund:\s*[-+]?₹[0-9.,KkMm]+.*[-+]?[0-9.]+%
+- waitForAnimationToEnd
+- runFlow:
+    when:
+      visible: "Stocks.*"
+    commands:
+      - tapOn: "Mutual Funds.*"
+      - waitForAnimationToEnd
+- assertVisible: Daily Movement.*
+- assertVisible: Mutual Funds.*
+- assertVisible: 1D Return of Holdings as of.*
+- assertVisible: ₹ ₹
+- assertVisible: '(?si).*[-+]?[0-9]*\.?[0-9]+%.*'
+- assertVisible: Total Invested.*
+- assertVisible: Current Value.*
+- assertVisible: ^[0-9,]+ Funds.*
+- assertVisible: 1D Return.*
+- assertVisible: Returns update at the end of the day, recent mutual fund purchases may take 1–2 days to reflect.*
+
+- tapOn: Stocks.*
+- waitForAnimationToEnd
+- assertVisible: Daily Movement.*
+- assertVisible: Stocks.*
+- assertVisible: 1D Return of Holdings as of.*
+- assertVisible: ₹ ₹
+- assertVisible: '(?si).*[-+]?[0-9]*\.?[0-9]+%.*'
+- assertVisible: Stocks qty.*
+- assertVisible: Current Value.*
+- assertVisible: ^[0-9,] stock.*
+- assertVisible: ^[0-9,] Stock.*
+- assertVisible: 1D Return.*
+- assertVisible: Returns update at the end of the day, recent stock purchases may take 1–2 days to reflect.*
+
+- tapOn:
+    #text: backward arrow
+    point: 7%,8%
+
+#18 STOCKS Daily movement - via Home screen
+- tapOn: .*1D Stock:\s*[-+]?₹[0-9.,KkMm]+.*[-+]?[0-9.]+%
+- waitForAnimationToEnd
+- runFlow:
+    when:
+      visible: "Mutual Funds.*"
+    commands:
+      - tapOn: "Stocks.*"
+      - waitForAnimationToEnd
+- assertVisible: Daily Movement.*
+- assertVisible: Stocks.*
+- assertVisible: 1D Return of Holdings as of.*
+- assertVisible: ₹ ₹
+- assertVisible: '(?si).*[-+]?[0-9]*\.?[0-9]+%.*'
+- assertVisible: Stocks qty.*
+- assertVisible: Current Value.*
+- assertVisible: ^[0-9,] stock.*
+- assertVisible: ^[0-9,] Stock.*
+- assertVisible: 1D Return.*
+- assertVisible: Returns update at the end of the day, recent stock purchases may take 1–2 days to reflect.*
+
+- tapOn: Mutual Funds.*
+- waitForAnimationToEnd
+- assertVisible: Daily Movement.*
+- assertVisible: Mutual Funds.*
+- assertVisible: 1D Return of Holdings as of.*
+- assertVisible: ₹ ₹
+- assertVisible: '(?si).*[-+]?[0-9]*\.?[0-9]+%.*'
+- assertVisible: Total Invested.*
+- assertVisible: Current Value.*
+- assertVisible: ^[0-9,]+ Funds.*
+- assertVisible: 1D Return.*
+- assertVisible: Returns update at the end of the day, recent mutual fund purchases may take 1–2 days to reflect.*
+
+- tapOn:
+    #text: backward arrow
+    point: 7%,8%
+
+#19 MF Daily movement - via MF L1 screen
+- tapOn: .*Mutual Funds.*[0-9,]+\sFunds.*[-]?₹.*
+- waitForAnimationToEnd
+- tapOn: .*1D Return:\s*[-+]?₹[0-9.,KkMm]+.*[-+]?[0-9.]+%
+- waitForAnimationToEnd
+- assertVisible: Mutual Fund Daily Movement.*
+- assertVisible: 1D Return of Holdings as of.*
+- assertVisible: ₹ ₹
+- assertVisible: '(?si).*[-+]?[0-9]*\.?[0-9]+%.*'
+- assertVisible: Total Invested.*
+- assertVisible: Current Value.*
+- assertVisible: ^[0-9,]+ Funds.*
+- assertVisible: 1D Return.*
+- assertVisible: Returns update at the end of the day, recent mutual fund purchases may take 1–2 days to reflect.*
+- assertNotVisible: Stocks.*
+
+- tapOn:
+    #text: backward arrow
+    point: 7%,8%
+
+- tapOn:
+    #text: backward arrow
+    point: 7%,8%
+
+#20 STOCKS Daily movement - via Stocks L1 screen
+- tapOn: .*Stocks.*[0-9,]+\sStock.*[-]?₹.*
+- waitForAnimationToEnd
+- tapOn: .*1D Return:\s*[-+]?₹[0-9.,KkMm]+.*[-+]?[0-9.]+%
+- waitForAnimationToEnd
+- assertVisible: Stock Daily Movement.*
+- assertVisible: 1D Return of Holdings as of.*
+- assertVisible: ₹ ₹
+- assertVisible: '(?si).*[-+]?[0-9]*\.?[0-9]+%.*'
+- assertVisible: Stocks qty.*
+- assertVisible: Current Value.*
+- assertVisible: ^[0-9,] stock.*
+- assertVisible: ^[0-9,] Stock.*
+- assertVisible: 1D Return.*
+- assertVisible: Returns update at the end of the day, recent stock purchases may take 1–2 days to reflect.*
+- assertNotVisible: Mutual Funds.*

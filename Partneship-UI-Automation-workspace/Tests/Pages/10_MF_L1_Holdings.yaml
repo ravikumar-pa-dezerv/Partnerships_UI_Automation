@@ -1,0 +1,112 @@
+appId: com.htmedia.mint
+---
+- launchApp:
+    clearState: true
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: 
+        id: mintlogo
+    commands:
+      - runFlow:
+          when:
+            visible: 
+              id: mintlogo
+          commands:
+            - runFlow:
+                when:
+                  visible: 
+                    id: mintlogo
+                commands:
+                  - runFlow:
+                      when:
+                        visible: 
+                          id: mintlogo
+                      commands:
+                        - runFlow:
+                            when:
+                              visible: 
+                                id: mintlogo
+                            commands:
+                              - runFlow:
+                                  when:
+                                    visible: 
+                                      id: mintlogo
+                                  commands:
+                                    - tapOn: 
+                                        id: mintlogo
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: "Consent"
+    commands:
+      - tapOn: "Consent"
+
+- runFlow:
+    when:
+      visible: "Consent"
+    commands:
+      - tapOn: "Consent"
+
+- waitForAnimationToEnd
+- tapOn: "Markets"
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: "Take a Quick Tour"
+    commands:
+      - tapOn: "Take a Quick Tour"
+      - runFlow:
+          when:
+            visible: "Skip"
+          commands:
+            - tapOn: "Skip"
+- tapOn: "Portfolio"
+- waitForAnimationToEnd
+- assertVisible:
+    text: "Link your portfolio to get started.*"
+    delay: 30000
+
+#Login
+# Enter phone number
+- doubleTapOn:
+    text: Enter Phone Number.*
+- tapOn:
+    text: Enter Phone Number.*
+    delay: 100
+- inputText: "9663117951"
+
+#"Get Started"
+- tapOn:
+    text: Get Started.*
+
+# DEZ OTP
+- doubleTapOn:
+    text: Enter 4 digit OTP.*
+- tapOn:
+    text: Enter 4 digit OTP.*
+    delay: 20000
+- inputText: "1"
+- waitForAnimationToEnd
+
+- assertVisible:
+    text: "Your Assets.*"
+    delay: 30000
+- assertVisible: "FAQs.*"
+
+- tapOn: .*Mutual Funds.*[0-9,]+\sFunds.*[-]?₹.*
+- waitForAnimationToEnd
+- assertVisible: Mutual Funds.*
+- tapOn: Holdings Tab 2 of 2
+- assertVisible: Holdings \([0-9]+\).*
+
+- scrollUntilVisible:
+    element:
+      text: "Bandhan Small Cap Fund.*"
+    direction: DOWN
+- assertVisible: 'Bandhan Small Cap Fund-Direct Plan-Growth.*Bandhan Small Cap Fund-Direct Plan-Growth.*Equity\s*•\s*Small-Cap Equity\s*•\s*Small-Cap.*Current Value.*Current Value.*-?\s*₹[0-9\.,]+[KkMm]?.*-?\s*₹[0-9\.,]+[KkMm]?.*Fund IRR.*[0-9]+(?:\.[0-9]+)?%.*[0-9]+(?:\.[0-9]+)?%.*IISL Nifty Smallcap 250 TR INR.*[0-9]+(?:\.[0-9]+)?%.*[0-9]+(?:\.[0-9]+)?%'
+
+- assertVisible: Powered by.*

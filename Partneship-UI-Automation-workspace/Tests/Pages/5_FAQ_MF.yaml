@@ -1,0 +1,156 @@
+appId: com.htmedia.mint
+---
+- launchApp:
+    clearState: true
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible:
+        id: mintlogo
+    commands:
+      - runFlow:
+          when:
+            visible:
+              id: mintlogo
+          commands:
+            - runFlow:
+                when:
+                  visible:
+                    id: mintlogo
+                commands:
+                  - runFlow:
+                      when:
+                        visible:
+                          id: mintlogo
+                      commands:
+                        - runFlow:
+                            when:
+                              visible:
+                                id: mintlogo
+                            commands:
+                              - runFlow:
+                                  when:
+                                    visible:
+                                      id: mintlogo
+                                  commands:
+                                    - tapOn:
+                                        id: mintlogo
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: "Consent"
+    commands:
+      - tapOn: "Consent"
+
+- runFlow:
+    when:
+      visible: "Consent"
+    commands:
+      - tapOn: "Consent"
+
+- waitForAnimationToEnd
+- tapOn: "Markets"
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: "Take a Quick Tour"
+    commands:
+      - tapOn: "Take a Quick Tour"
+      - runFlow:
+          when:
+            visible: "Skip"
+          commands:
+            - tapOn: "Skip"
+- tapOn: "Portfolio"
+- waitForAnimationToEnd
+- assertVisible:
+    text: "Link your portfolio to get started.*"
+    delay: 30000
+
+#Login
+# Enter phone number
+- doubleTapOn:
+    text: Enter Phone Number.*
+- tapOn:
+    text: Enter Phone Number.*
+    delay: 100
+- inputText: "9663117951"
+
+#"Get Started"
+- tapOn:
+    text: Get Started.*
+
+# DEZ OTP
+- doubleTapOn:
+    text: Enter 4 digit OTP.*
+- tapOn:
+    text: Enter 4 digit OTP.*
+    delay: 20000
+- inputText: "1"
+- waitForAnimationToEnd
+
+- assertVisible:
+    text: "Your Assets.*"
+    delay: 30000
+- assertVisible: "FAQs.*"
+
+- tapOn: "FAQs.*"
+- swipe:
+    from:
+      text: Bank.*
+    direction: LEFT
+- tapOn: "Mutual Funds.*"
+
+- tapOn: "How does Mint Portfolio powered by Dezerv fetch my mutual fund data?.*"
+- assertVisible: .*We fetch your mutual fund data securely via OTP-based consent from MFCentral \(CAMS \+ KFintech\). All access is encrypted, read-only, and done only with your permission.*
+
+- tapOn: ".*I.?m seeing an error: .*No active mutual funds linked to this PAN.* What does it mean?.*"
+- assertVisible: ".*This means no mutual funds were found for the provided PAN and mobile number. Ensure your PAN is correctly registered with your investments.*"
+
+- tapOn: "Why am I unable to see my mutual fund analysis or data?.*"
+- assertVisible: ".*This may be due to incomplete or delayed data from registrars like MF Central. Wait a few hours or reinitiate the linking if the issue persists after 24 hours.*"
+
+- scrollUntilVisible:
+    element:
+      text: Why is my XIRR showing incorrectly?.*
+    direction: DOWN
+
+- tapOn: "Why is my XIRR showing incorrectly?.*"
+- assertVisible: ".*XIRR may be inaccurate if transactions are missing, accounts are unlinked, or data hasn[’'']?t fully synced yet.*"
+
+- tapOn: "How often is my mutual fund data updated?.*"
+- assertVisible: ".*Your mutual fund data is refreshed once every 24 hours. Delays may occur during holidays or if the registrar systems are down.*"
+
+- tapOn: "Can I link multiple folios under one PAN?.*"
+- assertVisible: ".*Yes. As long as your PAN and mobile number are correctly registered, all associated folios will be fetched automatically.*"
+
+- scrollUntilVisible:
+    element:
+      text: I invested recently, but it[’'']?s not showing. What should I do?.*
+    direction: DOWN
+
+- tapOn: "I invested recently, but it[’'']?s not showing. What should I do?.*"
+- assertVisible: ".*It may take up to 48 hours for new investments to reflect, especially if they were made through offline modes or different platforms.*"
+
+- tapOn: "Is my mutual fund data shared with anyone?.*"
+- assertVisible: .*No. Your data is used only to generate insights and is not shared with third parties. Dezerv and Mint access your data solely for analysis and personalisation—with your consent.*
+
+- scrollUntilVisible:
+    element:
+      text: What types of mutual funds can I track?.*
+      delay: 100
+    direction: DOWN
+
+- tapOn: "Can I invest or redeem mutual funds using Mint Portfolio?.*"
+- assertVisible: .*No. Mint Portfolio is a tracking and analysis tool. You cannot transact \(buy/sell\) through the app.*
+
+- scrollUntilVisible:
+    element:
+      text: What types of mutual funds can I track?.*
+    direction: DOWN
+
+- tapOn: "What types of mutual funds can I track?.*"
+- assertVisible: ".*You can track all mutual fund types—equity, debt, hybrid, ELSS, index funds, and more—as long as they are registered with CAMS or KFintech.*"

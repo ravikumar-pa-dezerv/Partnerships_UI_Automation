@@ -1,0 +1,829 @@
+appId: com.htmedia.mint
+---
+- launchApp:
+    clearState: true
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible:
+        id: mintlogo
+    commands:
+      - runFlow:
+          when:
+            visible:
+              id: mintlogo
+          commands:
+            - runFlow:
+                when:
+                  visible:
+                    id: mintlogo
+                commands:
+                  - runFlow:
+                      when:
+                        visible:
+                          id: mintlogo
+                      commands:
+                        - runFlow:
+                            when:
+                              visible:
+                                id: mintlogo
+                            commands:
+                              - runFlow:
+                                  when:
+                                    visible:
+                                      id: mintlogo
+                                  commands:
+                                    - tapOn:
+                                        id: mintlogo
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: "Consent"
+    commands:
+      - tapOn: "Consent"
+
+- runFlow:
+    when:
+      visible: "Consent"
+    commands:
+      - tapOn: "Consent"
+
+- waitForAnimationToEnd
+- tapOn: "Markets"
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: "Take a Quick Tour"
+    commands:
+      - tapOn: "Take a Quick Tour"
+      - runFlow:
+          when:
+            visible: "Skip"
+          commands:
+            - tapOn: "Skip"
+- tapOn: "Portfolio"
+- waitForAnimationToEnd
+
+- assertVisible:
+    text: "Link your portfolio to get started.*"
+    delay: 30000
+- assertVisible: "Your data is 100% protected.*"
+- assertVisible: See how it works.*
+- tapOn: See how it works.*
+- assertVisible: Track and monitor all your investments in one place.*
+- assertVisible: Your data is 100% safe You can unlink your accounts anytime.*
+- assertVisible: ₹3,900 Cr\+ of missed gains identified.*
+- assertVisible: ₹79,000 Cr\+ of assets reviewed.*
+- tapOn: Get Started.*
+- tapOn: See how it works.*
+- tapOn: Close button
+
+#0 Login
+# Enter phone number
+- doubleTapOn:
+    text: Enter Phone Number.*
+- tapOn:
+    text: Enter Phone Number.*
+    delay: 100
+- inputText: "9663117951"
+
+#"Get Started"
+- tapOn:
+    text: Get Started.*
+
+# DEZ OTP
+- doubleTapOn:
+    text: Enter 4 digit OTP.*
+- tapOn:
+    text: Enter 4 digit OTP.*
+    delay: 20000
+- inputText: "1"
+- waitForAnimationToEnd
+
+- assertVisible:
+    text: "Your Assets.*"
+    delay: 30000
+- assertVisible: "FAQs.*"
+
+#1 HOME PAGE
+- assertVisible: .*1D Mutual Fund:\s*[-+]?₹[0-9.,KkMm]+.*[-+]?[0-9.]+%
+- assertVisible: .*1D Stock:\s*[-+]?₹[0-9.,KkMm]+.*[-+]?[0-9.]+%
+- assertVisible: .*Mutual Funds.*[0-9,]+\sFunds.*[-]?₹.*
+- assertVisible: .*Stocks.*[0-9,]+\sStock.*[-]?₹.*
+- assertVisible: .*Banks.*[0-9,]+\sAccounts.*[-]?₹.*
+
+
+
+- scrollUntilVisible:
+    element:
+      text: "Portfolio insights.*"
+    direction: DOWN
+- assertVisible: ".*Stay updated with market news on your holdings.*"
+- assertVisible: ".*Make sense of your wealth one insight at a time"
+- scrollUntilVisible:
+    element:
+      text: "News on your portfolio.*"
+    direction: DOWN
+- assertVisible: "News on your portfolio.*"
+- assertVisible: ".*Stay updated with market news on your holdings.*"
+- scrollUntilVisible:
+    element:
+      text: ".*ISO 27001 Certified"
+    direction: DOWN
+- assertVisible: ".*SEBI Regulated.*"
+- assertVisible: ".*Your data is 100% secure.*"
+- assertVisible: ".*ISO 27001 Certified"
+- assertVisible: "Powered by.*"
+
+#2  FAQ - GENERAL
+- tapOn: "FAQs.*"
+- tapOn: "General.*"
+
+- tapOn: "What is Mint Portfolio powered by Dezerv?.*"
+- assertVisible: ".*Mint Portfolio, powered by Dezerv is a portfolio tracking and analysis tool integrated into the Mint app. It helps you track your mutual funds, stocks, and bank accounts—while identifying concerns like high risk, poor diversification, or underperformance.*"
+
+- tapOn: "Is this service free?.*"
+- assertVisible: ".*Yes, Mint Portfolio powered by Dezerv is completely free to use within the Mint app. All features are available at no cost.*"
+
+- tapOn: "Do I need a separate login for Dezerv?.*"
+- assertVisible: ".*No. Everything works directly within the Mint app—no additional login or download is required.*"
+
+- scrollUntilVisible:
+    element:
+      text: "Do I need to install a separate app to use the Account Aggregator feature?.*"
+    direction: DOWN
+
+- tapOn: "Do I need to install a separate app to use the Account Aggregator feature?.*"
+- assertVisible: ".*No. All functionalities are integrated within the Mint app. You can access and manage your financial data directly through the app without the need for additional installations.*"
+
+- tapOn: "Can I also trade or invest using Mint Portfolio powered by Dezerv?.*"
+- assertVisible: ".*No, trading or investing is not supported within the app. You can only track and analyse your existing investments.*"
+
+- tapOn: "What can I track with Mint Portfolio, powered by Dezerv?.*"
+- assertVisible: .*You can track your mutual funds, bank accounts, and stocks \(via supported brokers\).*
+
+- tapOn: "How does it work?.*"
+- assertVisible: ".*Enter your PAN and registered mobile number. With your consent, the tool securely fetches and consolidates your data using Account Aggregators and MFCentral.*"
+
+- tapOn: "How often is Mint Portfolio updated?.*"
+- assertVisible: .*Your portfolio is updated daily, typically between 6 AM and 10 AM\. Stock data is refreshed on a T\+1 basis \(i.e., the day after trade settlement\).*
+
+- tapOn: "Can I see insights or get recommendations?.*"
+- assertVisible: ".*Yes. The app highlights red flags such as underperformance, concentration risk, or poor diversification.*"
+
+- scrollUntilVisible:
+    element:
+      text: "What are the benefits of using an Account Aggregator through the Mint Portfolio?.*"
+    direction: DOWN
+
+- tapOn: "What are the benefits of using an Account Aggregator through the Mint Portfolio?.*"
+- assertVisible: ".*You get a unified view of your bank and demat accounts, real-time updates, broker aggregation, spending insights, and seamless portfolio.*"
+
+- scrollUntilVisible:
+    element:
+      text: "How real-time are the updates provided by Account Aggregators?.*"
+    direction: DOWN
+
+- tapOn: "How real-time are the updates provided by Account Aggregators?.*"
+- assertVisible: .*Most Account Aggregators offer near real\-time or daily updates, ensuring your portfolio reflects up\-to\-date data.*
+
+#3 FAQ - PRIVACY
+- tapOn: "Privacy.*"
+
+- tapOn: "What is an Account Aggregator (AA)?.*"
+- assertVisible: .*An Account Aggregator is a Reserve Bank of India \(RBI\)-regulated entity that enables you to securely and digitally share your financial information \(like bank account details\) with financial service providers, but only with your explicit consent.*
+
+- tapOn: "What is Account Aggregator, and why is it needed?.*"
+- assertVisible: .*Account Aggregators allow secure, consent-based sharing of your financial data. This system is regulated by RBI and SEBI to give you full control and transparency.*
+
+- tapOn: "How does Mint Portfolio powered by Dezerv utilize the AA framework?.*"
+- assertVisible: ".*Mint Portfolio leverages the AA framework to fetch your financial data securely and with your permission. This integration provides a consolidated view of your financial portfolio within the Mint app.*"
+
+- tapOn: "Would my data be automatically shared if I had already signed up on an Account Aggregator platform earlier?.*"
+- assertVisible: ".*No, your data will not be automatically shared. Even if you've registered on an AA platform before, fresh consent is required to initiate data sharing.*"
+
+- tapOn: "Is my data safe when using the AA system?.*"
+- assertVisible: ".*Absolutely. Your data is encrypted, shared only with your explicit consent, and cannot be accessed or stored by Account Aggregators.*"
+
+- tapOn: "Is my data secure?.*"
+- assertVisible: ".*Yes. Your data is protected with 256-bit encryption, two-factor authentication, read-only access, and no storage of sensitive credentials.*"
+
+- scrollUntilVisible:
+    element:
+      text: "How do I revoke my consent to share profile data with Mint?.*"
+      delay: 100
+    direction: DOWN
+
+- tapOn: "Is my financial data shared with anyone?.*"
+- assertVisible: ".*No. Your data is shared only when you provide consent. With your permission, data is shared with Dezerv for insights and with Mint to personalise your app experience.*"
+
+- tapOn: "How does Mint Portfolio powered by Dezerv access my financial data?.*"
+- assertVisible: .*We securely fetch your financial data in two ways—through RBI-regulated Account Aggregators for bank and stock data, and via OTP-based consent from MFCentral \(CAMS \+ KFintech\) for mutual funds. All access is encrypted, consent-based, and fully compliant with regulatory standards.*
+
+- tapOn: "How do I delete my account and data?.*"
+- assertVisible: ".*Click below to delete your account and all associated data.*"
+- assertVisible: ".*Delete Account.*"
+
+- scrollUntilVisible:
+    element:
+      text: "How do I revoke my consent to share profile data with Mint?.*"
+      delay: 100
+    direction: DOWN
+
+- tapOn: "How do I revoke my consent to share profile data with Mint?.*"
+- assertVisible: ".*To stop sharing your profile data with Mint, click the button below and follow the instructions.*"
+- assertVisible: ".*Stop Sharing.*"
+
+#4  FAQ - BANK
+- tapOn: "Bank.*"
+
+- tapOn: "Why is my bank balance or transactions not reflecting correctly?.*"
+- assertVisible: ".*Ensure your bank is supported and correctly linked. Data is refreshed daily, but recent transactions or weekend activity may take longer to reflect.*"
+
+- tapOn: "How frequently is my bank data refreshed, and how much history is available?.*"
+- assertVisible: ".*Bank data is refreshed once a day, typically within 24 hours. You can fetch up to 1 year of past transaction data after linking your account.*"
+
+- tapOn: "Can I add, remove, or manage multiple bank accounts?.*"
+- assertVisible: ".*Yes, you can link multiple savings accounts as long as the mobile number matches your bank records. However, account removal is not supported at the moment.*"
+
+- tapOn: "Why am I not seeing one of my linked bank accounts?.*"
+- assertVisible: ".*One of your banks may be down or failed to sync. Check again after some time.*"
+
+- scrollUntilVisible:
+    element:
+      text: which banks are supported in the app?.*
+      delay: 100
+    direction: DOWN
+
+- tapOn: What if my account data isn\'t refreshing or syncing after OTP verification?.*
+- assertVisible: ".*It could be due to server downtime, incorrect login details, or linking errors. It may take up to 48 hours for data to sync. Retry after some time.*"
+
+- tapOn: "Can I link a bank account that is registered with a different mobile number?.*"
+- assertVisible: .*No. The mobile number must match your bank[’'']?s records for OTP-based verification.*
+
+- tapOn: I can\'t see my joint account while discovering bank accounts.*
+- assertVisible: ".*Currently, only individual savings accounts are supported. Joint and current account support is coming soon.*"
+
+- tapOn: "There are duplicate transactions or incorrect cash flow entries—how can I fix this?.*"
+- assertVisible: ".*Mark duplicate or internal transfer transactions to remove them from your cash flow calculations.*"
+
+- tapOn: "Can I change the category of a transaction?.*"
+- assertVisible: .*Yes. Tap on the transaction and choose a more relevant category.*
+
+- tapOn: "What filters are available in the transaction view?.*"
+- assertVisible: ".*You can filter by bank account, merchant name, payment mode, date range, category, and transaction type.*"
+
+- scrollUntilVisible:
+    element:
+      text: which banks are supported in the app?.*
+      delay: 100
+    direction: DOWN
+
+- tapOn: "which banks are supported in the app?.*"
+- assertVisible: ".*Most major Indian banks are supported. Over 20 banks have already been onboarded, with more being added regularly.*"
+
+#5 FAQ - MF
+- swipe:
+    from:
+      text: Bank.*
+    direction: LEFT
+- tapOn: "Mutual Funds.*"
+
+- tapOn: "How does Mint Portfolio powered by Dezerv fetch my mutual fund data?.*"
+- assertVisible: .*We fetch your mutual fund data securely via OTP-based consent from MFCentral \(CAMS \+ KFintech\). All access is encrypted, read-only, and done only with your permission.*
+
+- tapOn: ".*I.?m seeing an error: .*No active mutual funds linked to this PAN.* What does it mean?.*"
+- assertVisible: ".*This means no mutual funds were found for the provided PAN and mobile number. Ensure your PAN is correctly registered with your investments.*"
+
+- tapOn: "Why am I unable to see my mutual fund analysis or data?.*"
+- assertVisible: ".*This may be due to incomplete or delayed data from registrars like MF Central. Wait a few hours or reinitiate the linking if the issue persists after 24 hours.*"
+
+- scrollUntilVisible:
+    element:
+      text: Why is my XIRR showing incorrectly?.*
+    direction: DOWN
+
+- tapOn: "Why is my XIRR showing incorrectly?.*"
+- assertVisible: ".*XIRR may be inaccurate if transactions are missing, accounts are unlinked, or data hasn[’'']?t fully synced yet.*"
+
+- tapOn: "How often is my mutual fund data updated?.*"
+- assertVisible: ".*Your mutual fund data is refreshed once every 24 hours. Delays may occur during holidays or if the registrar systems are down.*"
+
+- tapOn: "Can I link multiple folios under one PAN?.*"
+- assertVisible: ".*Yes. As long as your PAN and mobile number are correctly registered, all associated folios will be fetched automatically.*"
+
+- scrollUntilVisible:
+    element:
+      text: I invested recently, but it[’'']?s not showing. What should I do?.*
+    direction: DOWN
+
+- tapOn: "I invested recently, but it[’'']?s not showing. What should I do?.*"
+- assertVisible: ".*It may take up to 48 hours for new investments to reflect, especially if they were made through offline modes or different platforms.*"
+
+- tapOn: "Is my mutual fund data shared with anyone?.*"
+- assertVisible: .*No. Your data is used only to generate insights and is not shared with third parties. Dezerv and Mint access your data solely for analysis and personalisation—with your consent.*
+
+- scrollUntilVisible:
+    element:
+      text: What types of mutual funds can I track?.*
+      delay: 100
+    direction: DOWN
+
+- tapOn: "Can I invest or redeem mutual funds using Mint Portfolio?.*"
+- assertVisible: .*No. Mint Portfolio is a tracking and analysis tool. You cannot transact \(buy/sell\) through the app.*
+
+- scrollUntilVisible:
+    element:
+      text: What types of mutual funds can I track?.*
+    direction: DOWN
+
+- tapOn: "What types of mutual funds can I track?.*"
+- assertVisible: ".*You can track all mutual fund types—equity, debt, hybrid, ELSS, index funds, and more—as long as they are registered with CAMS or KFintech.*"
+
+#6 FAQ - STOCK
+- swipe:
+    from:
+      text: Bank.*
+    direction: LEFT
+- tapOn: "Stock.*"
+
+- tapOn: "Can I track Zerodha, Upstox, or HDFC Securities here?.*"
+- assertVisible: ".*Yes, tracking is supported for most major brokers that are part of the Account Aggregator ecosystem.*"
+
+- tapOn: "Can I link the Demat accounts of my family members to Mint Portfolio powered by Dezerv?.*"
+- assertVisible: ".*Currently, only accounts linked to your mobile number can be connected. Support for family member accounts is coming soon.*"
+
+- tapOn: "Why is Mint Portfolio powered by Dezerv unable to discover my demat account?.*"
+- assertVisible: .*Common reasons include unsupported account types \(like joint or HUF\), NSDL sync delays, PAN mismatches, or newly opened accounts. Try again during weekday business hours.*
+
+- tapOn: "What should I do if my stock data still doesn[’'']?t appear or is outdated?.*"
+- assertVisible: ".*If your data hasn[’'']?t refreshed after 24 hours, retry later. We[’'']?re continuously improving broker connectivity and sync reliability.*"
+
+- tapOn: "I bought a stock but it[’'']?s not visible in Mint Portfolio powered by Dezerv. Why?.*"
+- assertVisible: .*Stocks appear only after trade settlement \(T\+1\). For example, if you bought a stock on Monday, it will reflect by Wednesday[’'']?s data refresh.*
+
+- scrollUntilVisible:
+    element:
+      text: Can I trade or sell stocks using Mint Portfolio powered by Dezerv?.*
+      delay: 100
+    direction: DOWN
+
+- tapOn: "How does Mint Portfolio powered by Dezerv fetch stock data?.*"
+- assertVisible: ".*We fetch stock and demat data securely through RBI-regulated Account Aggregators.?via your consent and mobile-linked PAN. The process is encrypted and read-only.*"
+
+- tapOn: "Can I track holdings from multiple brokers?.*"
+- assertVisible: ".*Yes. As long as those brokers are part of the Account Aggregator network and use the same PAN and mobile combination, their holdings will be consolidated and shown in one view.*"
+
+- scrollUntilVisible:
+    element:
+      text: Can I trade or sell stocks using Mint Portfolio powered by Dezerv?.*
+      delay: 100
+    direction: DOWN
+
+- tapOn: "Is stock tracking real-time?.*"
+- assertVisible: ".*No. Stock data is updated once daily. You may notice a delay of up to 24 hours after transactions or settlements.*"
+
+- tapOn: "Can I trade or sell stocks using Mint Portfolio powered by Dezerv?.*"
+- assertVisible: ".*No. This is a tracking-only tool. You cannot perform transactions like buying or selling through the app.*"
+
+#7 DATA SHARING - CONSENT
+- tapOn: "Privacy.*"
+- scrollUntilVisible:
+    element:
+      text: "How do I revoke my consent to share profile data with Mint?.*"
+      delay: 100
+    direction: DOWN
+- tapOn: "How do I delete my account and data?.*"
+- scrollUntilVisible:
+    element:
+      text: "How do I revoke my consent to share profile data with Mint?.*"
+      delay: 100
+    direction: DOWN
+
+- tapOn: "How do I revoke my consent to share profile data with Mint?.*"
+- assertVisible: ".*To stop sharing your profile data with Mint, click the button below and follow the instructions.*"
+- assertVisible: "Stop Sharing.*"
+- swipe:
+    from:
+      text: Stop Sharing.*
+    direction: DOWN
+- tapOn:
+    text: ".*Stop Sharing.*"
+- assertVisible: "Confirm if you'd like to stop sharing profile data.*"
+- assertVisible: ".*Your profile data will no longer be shared with Mint. This means you’ll stop receiving personalised news and updates on your portfolio. You can choose to share it again anytime.*"
+- assertVisible: "I Confirm.*"
+- tapOn: "I Confirm.*"
+- assertVisible: .*Profile data sharing disabled.*
+- assertVisible: .*No further data will be shared going forward.*
+- waitForAnimationToEnd
+
+- assertVisible: "How do I access news relevant to Mint Portfolio?.*"
+- assertVisible: ".*To view news related to portfolio, you will need to give consent to share your profile data with Mint. Click the button below and follow the instructions.*"
+- assertVisible: ".*Start Sharing.*"
+- tapOn: "Start Sharing.*"
+- assertVisible: .*Profile data sharing enabled.*
+- assertVisible: .*Your data will be securely synced to.*personalise your experience.*
+- waitForAnimationToEnd
+- assertVisible: "How do I revoke my consent to share profile data with Mint?.*"
+- assertVisible: ".*To stop sharing your profile data with Mint, click the button below and follow the instructions.*"
+- assertVisible: "Stop Sharing.*"
+
+- tapOn:
+    #text: backward arrow
+    point: 7%,8%
+- scrollUntilVisible:
+    element:
+      text: "Your Assets.*"
+    direction: UP
+- assertVisible: "Your Assets.*"
+- assertVisible: FAQs.*
+
+#8 MF - HEADER
+- tapOn: .*Mutual Funds.*[0-9,]+\sFunds.*[-]?₹.*
+- waitForAnimationToEnd
+- assertVisible: Mutual Funds.*
+- assertVisible: Holdings as of.*
+- assertVisible: ₹ ₹
+- assertVisible: .*Total Invested.*[-+]?₹[0-9.,KkMmLl]+.*
+- assertVisible: .*Current Gains.*[-+]?₹[0-9.,KkMmLl]+.*
+- assertVisible: .*1D Return:\s*[-+]?₹[0-9.,KkMm]+.*[-+]?[0-9.]+%
+
+- assertVisible: Refresh.*
+- tapOn: Refresh.*
+- waitForAnimationToEnd
+- assertVisible: Verify with OTP.*
+- assertVisible: Enter the 6-digit OTP sent by MF central to.*
+
+- tapOn:
+    #text: backward arrow
+    point: 7%,8%
+- scrollUntilVisible:
+    element:
+      text: "Mutual Funds.*"
+    direction: UP
+
+#9 MF - L1 SUMMARY
+- assertVisible: Summary Tab 1 of 2
+- assertVisible: Holdings Tab 2 of 2
+- assertVisible: How did your portfolio perform?.*
+- assertVisible: Portfolio XIRR.*
+- assertVisible: Benchmark XIRR.*
+- assertVisible: You have\s+.*\s+since your portfolio\s+.*\s+the benchmark.*
+
+- scrollUntilVisible:
+    element:
+      text: "Ideal Funds:.*"
+    direction: DOWN
+- assertVisible: How is your portfolio distributed?.*
+- assertVisible: Overall Overall
+- assertVisible: Your funds Your funds
+- assertVisible: Your AMCs Your AMCs
+- assertVisible: Ideal Funds:.*
+
+- scrollUntilVisible:
+    element:
+      text: "What fixed cost are you paying?.*"
+    direction: DOWN
+- assertVisible: Concentration.*
+- tapOn: Concentration.*
+- assertVisible: .*Top\s+[0-9,]+\s+Funds.*[-+]?₹[0-9.,KkMmLl]+.*[-+]?[0-9]*\.?[0-9]+%.*
+- assertVisible: .*Rest\s+[0-9,]+\s+Funds.*[-+]?₹[0-9.,KkMmLl]+.*[-+]?[0-9]*\.?[0-9]+%.*
+
+- scrollUntilVisible:
+    element:
+      text: "Our fund evaluation process.*"
+    direction: DOWN
+- assertVisible: What fixed cost are you paying?.*
+- assertVisible: Annual Cost(TER) Annual Cost(TER)
+- assertVisible: .*Direct\s*\([0-9,]+\s*funds\).*
+- assertVisible: .*Regular\s*\([0-9,]+\s*funds\).*
+- assertVisible: All your investments are in direct funds.*
+- assertVisible: Our fund evaluation process.*
+- assertVisible: Powered by.*
+
+- repeat:
+    times: 3
+    commands:
+      - swipe:
+          direction: DOWN
+
+#10 MF - L1 HOLDINGS
+- tapOn: Holdings Tab 2 of 2
+- waitForAnimationToEnd
+- assertVisible: Holdings \([0-9]+\).*
+- scrollUntilVisible:
+    element:
+      text: "Bandhan Small Cap Fund.*"
+    direction: DOWN
+- assertVisible: 'Bandhan Small Cap Fund-Direct Plan-Growth.*Bandhan Small Cap Fund-Direct Plan-Growth.*Equity\s*•\s*Small-Cap Equity\s*•\s*Small-Cap.*Current Value.*Current Value.*-?\s*₹[0-9\.,]+[KkMm]?.*-?\s*₹[0-9\.,]+[KkMm]?.*Fund IRR.*[0-9]+(?:\.[0-9]+)?%.*[0-9]+(?:\.[0-9]+)?%.*IISL Nifty Smallcap 250 TR INR.*[0-9]+(?:\.[0-9]+)?%.*[0-9]+(?:\.[0-9]+)?%'
+- assertVisible: Powered by.*
+
+#11 MF - L2 HOLDINGS
+- tapOn: Bandhan Small Cap Fund.*
+
+- assertVisible: Bandhan Small Cap Fund-Direct Plan-Growth.*
+- assertVisible: Equity • Small-Cap.*
+- assertVisible: Investment Details:.*
+- assertVisible: Current Value.*
+- assertVisible: Invested.*
+- assertVisible: Current Gains.*
+- assertVisible: Invested Since.*
+- assertVisible: Performance.*
+- assertVisible: This Fund.*
+- assertVisible: IISL Nifty Smallcap 250 TR INR.*
+- scrollUntilVisible:
+    element:
+      text: "Fund ranks in top 75% of its category.*"
+    direction: DOWN
+- assertVisible: Fund Analysis.*
+- assertVisible: Fund has ideal composition \(market cap & style allocation\).*
+- assertVisible: Fund ranks in top 75% of its category.*
+- assertVisible: Powered by.*
+
+- tapOn:
+    #text: backward arrow
+    point: 7%,8%
+
+- tapOn:
+    #text: backward arrow
+    point: 7%,8%
+
+#12 STOCKS - HEADER
+- tapOn: .*Stocks.*[0-9,]+\sStock.*[-]?₹.*
+- waitForAnimationToEnd
+- assertVisible: Stocks.*
+- assertVisible: Stock holdings as of.*
+- assertVisible: ₹ ₹
+- assertVisible: .*Stocks qty 1 Stock.*
+- assertVisible: Accounts linked Accounts linked 1 Broker.*
+- assertVisible: .*1D Return:\s*[-+]?₹[0-9.,KkMm]+.*[-+]?[0-9.]+%
+- assertVisible: "Powered by.*"
+
+#13 STOCKS - SUMMARY
+- assertVisible: Analysis Tab 1 of 2
+- assertVisible: Holdings Tab 2 of 2
+- assertVisible: Overall.*
+- assertVisible: Category Level.*
+- assertVisible: HOW DID YOUR PORTFOLIO PERFORM.*
+- assertVisible: Portfolio XIRR.*
+- assertVisible: Benchmark XIRR.*
+- assertVisible: You have\s+.*\s+since your portfolio\s+.*\s+the benchmark.*
+- assertVisible: How is this calculated?.*
+
+- scrollUntilVisible:
+    element:
+      text: "DEMAT LINKED.*"
+    direction: DOWN
+- assertVisible: WHERE ARE MY STOCKS ALLOCATED?.*
+- assertVisible: Market Cap.*
+- assertVisible: Category Category
+- assertVisible: Allocation.*
+- assertVisible: Large Cap.*
+- assertVisible: Sector.*
+- tapOn: Sector.*
+- assertVisible: Category.*
+- assertVisible: Allocation.*
+- assertVisible: Automobiles.*
+- assertVisible: DEMAT LINKED.*
+- assertVisible: 5paisa Capital Limited 5paisa Capital Limited ₹.* Holdings as of .*
+- assertVisible: Powered by.*
+
+- repeat:
+    times: 3
+    commands:
+      - swipe:
+          direction: DOWN
+
+#14 STOCKS - HOLDINGS
+- assertVisible: Stocks.*
+- tapOn: Holdings Tab 2 of 2
+- assertVisible: .*Bajaj Auto Ltd 1 Share.*
+- assertVisible: "Powered by.*"
+
+- tapOn:
+    #text: backward arrow
+    point: 7%,8%
+
+#15 BANKS - ANALYSIS
+- tapOn: .*Banks.*[0-9,]+\sAccounts.*[-]?₹.*
+- waitForAnimationToEnd
+
+- assertVisible: Banks.*
+- assertVisible: Bank balance as of.*
+- assertVisible: ₹ ₹
+- assertVisible: Synced.*|Outdated.*
+- tapOn: Synced.*|Outdated.*
+- tapOn: Close button
+
+- assertVisible: Analysis Tab 1 of 2
+- assertVisible: Transactions Tab 2 of 2
+
+- assertVisible: YOUR CASHFLOW SUMMARY.*
+- assertVisible: BANK ACCOUNT INSIGHTS.*
+- scrollUntilVisible:
+    element:
+      text: "Average month end balance.*"
+    direction: DOWN
+- assertVisible: Average monthly expenses.*
+- assertVisible: Past 12 Months.*
+- assertVisible: Average month end balance.*
+- scrollUntilVisible:
+    element:
+      text: "Add another bank.*"
+    direction: DOWN
+- assertVisible: YOUR BANK ACCOUNTS.*
+- assertVisible: Add another bank.*
+- assertVisible: Powered by.*
+
+- repeat:
+    times: 3
+    commands:
+      - swipe:
+          direction: DOWN
+
+#16 BANKS - TRANSACTIONS
+- tapOn: Transactions Tab 2 of 2
+- waitForAnimationToEnd
+
+- assertVisible: Category.*
+- assertVisible: Merchant.*
+- assertVisible: Payment Mode.*
+- swipe:
+    from:
+      text: Payment Mode.*
+    direction: LEFT
+- assertVisible: Transaction Type.*
+- assertVisible: Bank.*
+- swipe:
+    from:
+      text: Transaction Type.*
+    direction: LEFT
+- assertVisible: Month Month
+- assertVisible: Powered by.*
+
+- tapOn:
+    #text: backward arrow
+    point: 7%,8%
+
+#17 MF Daily movement - via Home screen
+- tapOn: .*1D Mutual Fund:\s*[-+]?₹[0-9.,KkMm]+.*[-+]?[0-9.]+%
+- waitForAnimationToEnd
+- runFlow:
+    when:
+      visible: "Stocks.*"
+    commands:
+      - tapOn: "Mutual Funds.*"
+      - waitForAnimationToEnd
+- assertVisible: Daily Movement.*
+- assertVisible: Mutual Funds.*
+- assertVisible: 1D Return of Holdings as of.*
+- assertVisible: ₹ ₹
+- assertVisible: '(?si).*[-+]?[0-9]*\.?[0-9]+%.*'
+- assertVisible: Total Invested.*
+- assertVisible: Current Value.*
+- assertVisible: ^[0-9,]+ Funds.*
+- assertVisible: 1D Return.*
+- assertVisible: Returns update at the end of the day, recent mutual fund purchases may take 1–2 days to reflect.*
+
+- tapOn: Stocks.*
+- waitForAnimationToEnd
+- assertVisible: Daily Movement.*
+- assertVisible: Stocks.*
+- assertVisible: 1D Return of Holdings as of.*
+- assertVisible: ₹ ₹
+- assertVisible: '(?si).*[-+]?[0-9]*\.?[0-9]+%.*'
+- assertVisible: Stocks qty.*
+- assertVisible: Current Value.*
+- assertVisible: ^[0-9,] stock.*
+- assertVisible: ^[0-9,] Stock.*
+- assertVisible: 1D Return.*
+- assertVisible: Returns update at the end of the day, recent stock purchases may take 1–2 days to reflect.*
+
+- tapOn:
+    #text: backward arrow
+    point: 7%,8%
+
+#18 STOCKS Daily movement - via Home screen
+- tapOn: .*1D Stock:\s*[-+]?₹[0-9.,KkMm]+.*[-+]?[0-9.]+%
+- waitForAnimationToEnd
+- runFlow:
+    when:
+      visible: "Mutual Funds.*"
+    commands:
+      - tapOn: "Stocks.*"
+      - waitForAnimationToEnd
+- assertVisible: Daily Movement.*
+- assertVisible: Stocks.*
+- assertVisible: 1D Return of Holdings as of.*
+- assertVisible: ₹ ₹
+- assertVisible: '(?si).*[-+]?[0-9]*\.?[0-9]+%.*'
+- assertVisible: Stocks qty.*
+- assertVisible: Current Value.*
+- assertVisible: ^[0-9,] stock.*
+- assertVisible: ^[0-9,] Stock.*
+- assertVisible: 1D Return.*
+- assertVisible: Returns update at the end of the day, recent stock purchases may take 1–2 days to reflect.*
+
+- tapOn: Mutual Funds.*
+- waitForAnimationToEnd
+- assertVisible: Daily Movement.*
+- assertVisible: Mutual Funds.*
+- assertVisible: 1D Return of Holdings as of.*
+- assertVisible: ₹ ₹
+- assertVisible: '(?si).*[-+]?[0-9]*\.?[0-9]+%.*'
+- assertVisible: Total Invested.*
+- assertVisible: Current Value.*
+- assertVisible: ^[0-9,]+ Funds.*
+- assertVisible: 1D Return.*
+- assertVisible: Returns update at the end of the day, recent mutual fund purchases may take 1–2 days to reflect.*
+
+- tapOn:
+    #text: backward arrow
+    point: 7%,8%
+
+#19 MF Daily movement - via MF L1 screen
+- tapOn: .*Mutual Funds.*[0-9,]+\sFunds.*[-]?₹.*
+- waitForAnimationToEnd
+- tapOn: .*1D Return:\s*[-+]?₹[0-9.,KkMm]+.*[-+]?[0-9.]+%
+- waitForAnimationToEnd
+- assertVisible: Mutual Fund Daily Movement.*
+- assertVisible: 1D Return of Holdings as of.*
+- assertVisible: ₹ ₹
+- assertVisible: '(?si).*[-+]?[0-9]*\.?[0-9]+%.*'
+- assertVisible: Total Invested.*
+- assertVisible: Current Value.*
+- assertVisible: ^[0-9,]+ Funds.*
+- assertVisible: 1D Return.*
+- assertVisible: Returns update at the end of the day, recent mutual fund purchases may take 1–2 days to reflect.*
+- assertNotVisible: Stocks.*
+
+- tapOn:
+    #text: backward arrow
+    point: 7%,8%
+
+- tapOn:
+    #text: backward arrow
+    point: 7%,8%
+
+#20 STOCKS Daily movement - via Stocks L1 screen
+- tapOn: .*Stocks.*[0-9,]+\sStock.*[-]?₹.*
+- waitForAnimationToEnd
+- tapOn: .*1D Return:\s*[-+]?₹[0-9.,KkMm]+.*[-+]?[0-9.]+%
+- waitForAnimationToEnd
+- assertVisible: Stock Daily Movement.*
+- assertVisible: 1D Return of Holdings as of.*
+- assertVisible: ₹ ₹
+- assertVisible: '(?si).*[-+]?[0-9]*\.?[0-9]+%.*'
+- assertVisible: Stocks qty.*
+- assertVisible: Current Value.*
+- assertVisible: ^[0-9,] stock.*
+- assertVisible: ^[0-9,] Stock.*
+- assertVisible: 1D Return.*
+- assertVisible: Returns update at the end of the day, recent stock purchases may take 1–2 days to reflect.*
+- assertNotVisible: Mutual Funds.*
+
+- tapOn:
+    #text: backward arrow
+    point: 7%,8%
+
+- tapOn:
+    #text: backward arrow
+    point: 7%,8%
+
+#21 Expert call
+- runFlow:
+    when:
+      visible: "Book your free 1-1 portfolio review call with an expert.*"
+    commands:
+      - scrollUntilVisible:
+          element:
+            text: "Set-up a free 1-1 call.*"
+          direction: DOWN
+      - assertVisible: Book your free 1-1 portfolio review call with an expert.*
+      - assertVisible: .*Here's what you will get on the call.*
+      - assertVisible: .*WE PICKED A SLOT FOR YOU WE PICKED A SLOT FOR YOU.*
+      - assertVisible: .*45 min call.*
+      - assertVisible:  .*Free consultation.*
+      - assertVisible:  .*Did you know? .* investors with .*Cr+ portfolio have taken our consultation.*
+      - assertVisible: "Confirm slot :.*"
+      - assertVisible: Choose Another Slot.*
+
+
+- runFlow:
+    when:
+      visible: "Next steps.*"
+    commands:
+      - scrollUntilVisible:
+          element:
+            text: "Set-up a free 1-1 call.*"
+          direction: DOWN
+      - assertVisible: Next steps.*
+      - assertVisible: .*Your wealth manager will present you a detailed analysis.*
+      - assertVisible: .*45 min call.*
+      - assertVisible: .*No consultation charges
+      - assertVisible: Set-up a free 1-1 call.*
+      - tapOn: Set-up a free 1-1 call.*
+      - assertVisible: Select preferred slot for 1-1 call with your client partner.*

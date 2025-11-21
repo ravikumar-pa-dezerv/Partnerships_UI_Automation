@@ -1,0 +1,139 @@
+appId: com.htmedia.mint
+---
+- launchApp:
+    clearState: true
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible:
+        id: mintlogo
+    commands:
+      - runFlow:
+          when:
+            visible:
+              id: mintlogo
+          commands:
+            - runFlow:
+                when:
+                  visible:
+                    id: mintlogo
+                commands:
+                  - runFlow:
+                      when:
+                        visible:
+                          id: mintlogo
+                      commands:
+                        - runFlow:
+                            when:
+                              visible:
+                                id: mintlogo
+                            commands:
+                              - runFlow:
+                                  when:
+                                    visible:
+                                      id: mintlogo
+                                  commands:
+                                    - tapOn:
+                                        id: mintlogo
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: "Consent"
+    commands:
+      - tapOn: "Consent"
+
+- runFlow:
+    when:
+      visible: "Consent"
+    commands:
+      - tapOn: "Consent"
+
+- waitForAnimationToEnd
+- tapOn: "Markets"
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: "Take a Quick Tour"
+    commands:
+      - tapOn: "Take a Quick Tour"
+      - runFlow:
+          when:
+            visible: "Skip"
+          commands:
+            - tapOn: "Skip"
+- tapOn: "Portfolio"
+- waitForAnimationToEnd
+- assertVisible:
+    text: "Link your portfolio to get started.*"
+    delay: 30000
+
+#Login
+# Enter phone number
+- doubleTapOn:
+    text: Enter Phone Number.*
+- tapOn:
+    text: Enter Phone Number.*
+    delay: 100
+- inputText: "9663117951"
+
+#"Get Started"
+- tapOn:
+    text: Get Started.*
+
+# DEZ OTP
+- doubleTapOn:
+    text: Enter 4 digit OTP.*
+- tapOn:
+    text: Enter 4 digit OTP.*
+    delay: 20000
+- inputText: "1"
+- waitForAnimationToEnd
+
+- assertVisible:
+    text: "Your Assets.*"
+    delay: 30000
+- assertVisible: "FAQs.*"
+
+- tapOn: .*Mutual Funds.*[0-9,]+\sFunds.*[-]?₹.*
+- waitForAnimationToEnd
+- assertVisible: Mutual Funds.*
+- assertVisible: Summary Tab 1 of 2
+- assertVisible: Holdings Tab 2 of 2
+- assertVisible: How did your portfolio perform?.*
+- assertVisible: Portfolio XIRR.*
+- assertVisible: Benchmark XIRR.*
+- assertVisible: You have\s+.*\s+since your portfolio\s+.*\s+the benchmark.*
+
+- scrollUntilVisible:
+    element:
+      text: "Ideal Funds:.*"
+    direction: DOWN
+- assertVisible: How is your portfolio distributed?.*
+- assertVisible: Overall Overall
+- assertVisible: Your funds Your funds
+- assertVisible: Your AMCs Your AMCs
+- assertVisible: Ideal Funds:.*
+
+- scrollUntilVisible:
+    element:
+      text: "What fixed cost are you paying?.*"
+    direction: DOWN
+- assertVisible: Concentration.*
+- tapOn: Concentration.*
+- assertVisible: .*Top\s+[0-9,]+\s+Funds.*[-+]?₹[0-9.,KkMmLl]+.*[-+]?[0-9]*\.?[0-9]+%.*
+- assertVisible: .*Rest\s+[0-9,]+\s+Funds.*[-+]?₹[0-9.,KkMmLl]+.*[-+]?[0-9]*\.?[0-9]+%.*
+
+- scrollUntilVisible:
+    element:
+      text: "Our fund evaluation process.*"
+    direction: DOWN
+- assertVisible: What fixed cost are you paying?.*
+- assertVisible: Annual Cost(TER) Annual Cost(TER)
+- assertVisible: .*Direct\s*\([0-9,]+\s*funds\).*
+- assertVisible: .*Regular\s*\([0-9,]+\s*funds\).*
+- assertVisible: All your investments are in direct funds.*
+- assertVisible: Our fund evaluation process.*
+- assertVisible: Powered by.*

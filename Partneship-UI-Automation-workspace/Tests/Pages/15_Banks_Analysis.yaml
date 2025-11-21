@@ -1,0 +1,128 @@
+appId: com.htmedia.mint
+---
+- launchApp:
+    clearState: true
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: 
+        id: mintlogo
+    commands:
+      - runFlow:
+          when:
+            visible: 
+              id: mintlogo
+          commands:
+            - runFlow:
+                when:
+                  visible: 
+                    id: mintlogo
+                commands:
+                  - runFlow:
+                      when:
+                        visible: 
+                          id: mintlogo
+                      commands:
+                        - runFlow:
+                            when:
+                              visible: 
+                                id: mintlogo
+                            commands:
+                              - runFlow:
+                                  when:
+                                    visible: 
+                                      id: mintlogo
+                                  commands:
+                                    - tapOn: 
+                                        id: mintlogo
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: "Consent"
+    commands:
+      - tapOn: "Consent"
+
+- runFlow:
+    when:
+      visible: "Consent"
+    commands:
+      - tapOn: "Consent"
+
+- waitForAnimationToEnd
+- tapOn: "Markets"
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: "Take a Quick Tour"
+    commands:
+      - tapOn: "Take a Quick Tour"
+      - runFlow:
+          when:
+            visible: "Skip"
+          commands:
+            - tapOn: "Skip"
+- tapOn: "Portfolio"
+- waitForAnimationToEnd
+- assertVisible:
+    text: "Link your portfolio to get started.*"
+    delay: 30000
+
+#Login
+# Enter phone number
+- doubleTapOn:
+    text: Enter Phone Number.*
+- tapOn:
+    text: Enter Phone Number.*
+    delay: 100
+- inputText: "9663117951"
+
+#"Get Started"
+- tapOn:
+    text: Get Started.*
+
+# DEZ OTP
+- doubleTapOn:
+    text: Enter 4 digit OTP.*
+- tapOn:
+    text: Enter 4 digit OTP.*
+    delay: 20000
+- inputText: "1"
+- waitForAnimationToEnd
+
+- assertVisible:
+    text: "Your Assets.*"
+    delay: 30000
+- assertVisible: "FAQs.*"
+
+- tapOn: .*Banks.*[0-9,]+\sAccounts.*[-]?₹.*
+- waitForAnimationToEnd
+
+- assertVisible: Banks.*
+- assertVisible: Bank balance as of.*
+- assertVisible: ₹ ₹
+- assertVisible: Synced.*
+- tapOn: Synced.*
+- tapOn: Close button
+
+- assertVisible: Analysis Tab 1 of 2
+- assertVisible: Transactions Tab 2 of 2
+
+- assertVisible: YOUR CASHFLOW SUMMARY.*
+- assertVisible: BANK ACCOUNT INSIGHTS.*
+- scrollUntilVisible:
+    element:
+      text: "Average month end balance.*"
+    direction: DOWN
+- assertVisible: Average monthly expenses.*
+- assertVisible: Past 12 Months.*
+- assertVisible: Average month end balance.*
+- scrollUntilVisible:
+    element:
+      text: "Add another bank.*"
+    direction: DOWN
+- assertVisible: YOUR BANK ACCOUNTS.*
+- assertVisible: Add another bank.*
+- assertVisible: Powered by.*

@@ -1,0 +1,144 @@
+appId: com.htmedia.mint
+---
+- launchApp:
+    clearState: true
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible:
+        id: mintlogo
+    commands:
+      - runFlow:
+          when:
+            visible:
+              id: mintlogo
+          commands:
+            - runFlow:
+                when:
+                  visible:
+                    id: mintlogo
+                commands:
+                  - runFlow:
+                      when:
+                        visible:
+                          id: mintlogo
+                      commands:
+                        - runFlow:
+                            when:
+                              visible:
+                                id: mintlogo
+                            commands:
+                              - runFlow:
+                                  when:
+                                    visible:
+                                      id: mintlogo
+                                  commands:
+                                    - tapOn:
+                                        id: mintlogo
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: "Consent"
+    commands:
+      - tapOn: "Consent"
+
+- runFlow:
+    when:
+      visible: "Consent"
+    commands:
+      - tapOn: "Consent"
+
+- waitForAnimationToEnd
+- tapOn: "Markets"
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: "Take a Quick Tour"
+    commands:
+      - tapOn: "Take a Quick Tour"
+      - runFlow:
+          when:
+            visible: "Skip"
+          commands:
+            - tapOn: "Skip"
+- tapOn: "Portfolio"
+- waitForAnimationToEnd
+- assertVisible:
+    text: "Link your portfolio to get started.*"
+    delay: 30000
+
+#Login
+# Enter phone number
+- doubleTapOn:
+    text: Enter Phone Number.*
+- tapOn:
+    text: Enter Phone Number.*
+    delay: 100
+- inputText: "9663117951"
+
+#"Get Started"
+- tapOn:
+    text: Get Started.*
+
+# DEZ OTP
+- doubleTapOn:
+    text: Enter 4 digit OTP.*
+- tapOn:
+    text: Enter 4 digit OTP.*
+    delay: 20000
+- inputText: "1"
+- waitForAnimationToEnd
+
+- assertVisible:
+    text: "Your Assets.*"
+    delay: 30000
+- assertVisible: "FAQs.*"
+
+- tapOn: FAQs.*
+- swipe:
+    from:
+      text: Bank.*
+    direction: LEFT
+- tapOn: "Stock.*"
+
+- tapOn: "Can I track Zerodha, Upstox, or HDFC Securities here?.*"
+- assertVisible: ".*Yes, tracking is supported for most major brokers that are part of the Account Aggregator ecosystem.*"
+
+- tapOn: "Can I link the Demat accounts of my family members to Mint Portfolio powered by Dezerv?.*"
+- assertVisible: ".*Currently, only accounts linked to your mobile number can be connected. Support for family member accounts is coming soon.*"
+
+- tapOn: "Why is Mint Portfolio powered by Dezerv unable to discover my demat account?.*"
+- assertVisible: .*Common reasons include unsupported account types \(like joint or HUF\), NSDL sync delays, PAN mismatches, or newly opened accounts. Try again during weekday business hours.*
+
+- tapOn: "What should I do if my stock data still doesn[’'']?t appear or is outdated?.*"
+- assertVisible: ".*If your data hasn[’'']?t refreshed after 24 hours, retry later. We[’'']?re continuously improving broker connectivity and sync reliability.*"
+
+- tapOn: "I bought a stock but it[’'']?s not visible in Mint Portfolio powered by Dezerv. Why?.*"
+- assertVisible: .*Stocks appear only after trade settlement \(T\+1\). For example, if you bought a stock on Monday, it will reflect by Wednesday[’'']?s data refresh.*
+
+- scrollUntilVisible:
+    element:
+      text: Can I trade or sell stocks using Mint Portfolio powered by Dezerv?.*
+      delay: 100
+    direction: DOWN
+
+- tapOn: "How does Mint Portfolio powered by Dezerv fetch stock data?.*"
+- assertVisible: ".*We fetch stock and demat data securely through RBI-regulated Account Aggregators.?via your consent and mobile-linked PAN. The process is encrypted and read-only.*"
+
+- tapOn: "Can I track holdings from multiple brokers?.*"
+- assertVisible: ".*Yes. As long as those brokers are part of the Account Aggregator network and use the same PAN and mobile combination, their holdings will be consolidated and shown in one view.*"
+
+- scrollUntilVisible:
+    element:
+      text: Can I trade or sell stocks using Mint Portfolio powered by Dezerv?.*
+      delay: 100
+    direction: DOWN
+
+- tapOn: "Is stock tracking real-time?.*"
+- assertVisible: ".*No. Stock data is updated once daily. You may notice a delay of up to 24 hours after transactions or settlements.*"
+
+- tapOn: "Can I trade or sell stocks using Mint Portfolio powered by Dezerv?.*"
+- assertVisible: ".*No. This is a tracking-only tool. You cannot perform transactions like buying or selling through the app.*"
